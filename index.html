@@ -47,15 +47,52 @@ select,input{border-radius:12px;background:rgba(255,255,255,.12);padding:10px 12
 .sl svg.i{width:58%;height:58%;stroke-width:1.6}
 #joy{border:1px solid rgba(255,255,255,.35);background:radial-gradient(circle at 50% 35%,rgba(255,255,255,.24),rgba(255,255,255,.06));box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 8px 28px rgba(0,0,0,.3)}
 #knob{background:linear-gradient(145deg,#fff,#cfe0ff);box-shadow:0 4px 12px rgba(0,0,0,.35);opacity:.92}
+
+/* ---- Responsive + mode switch ---- */
+:root{--js:clamp(96px,26vmin,150px);--bs:clamp(56px,15vmin,84px);--ed:clamp(14px,3.2vmin,28px);--gs:44px}
+#joy{width:var(--js);height:var(--js);left:calc(var(--ed) + env(safe-area-inset-left,0px));bottom:calc(var(--ed) + env(safe-area-inset-bottom,0px))}
+#knob{left:33.33%;top:33.33%;width:33.33%;height:33.33%}
+.tb{width:var(--bs);height:var(--bs);right:calc(var(--ed) + env(safe-area-inset-right,0px))}
+.tb svg.i{width:42%;height:42%}
+#bi{bottom:calc(var(--ed) + env(safe-area-inset-bottom,0px))}
+#bj{bottom:calc(var(--ed) + var(--bs) + 14px + env(safe-area-inset-bottom,0px))}
+#gear{position:fixed;top:calc(8px + env(safe-area-inset-top,0px));left:calc(50% - var(--gs)/2);z-index:7;width:var(--gs);height:var(--gs);margin:0;padding:0;border-radius:14px;justify-content:center}
+#gear svg.i{width:22px;height:22px}
+#set{z-index:9}#set .p{max-width:420px}
+.seg{display:flex;gap:6px;margin:6px 0}.seg button{flex:1;justify-content:center;margin:0}
+#det{font-size:12px;opacity:.8}
+#hint{position:fixed;left:calc(10px + env(safe-area-inset-left,0px));bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:3;pointer-events:none;padding:10px 14px;font-size:12px;line-height:1.35;opacity:0;transition:opacity 1.2s ease;max-width:min(260px,46vw)}
+#hint.on{opacity:.88;transition:opacity .35s ease}
+#hint .hr{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;align-items:center}
+#hint kbd{margin:0 2px 0 0}#hint .ht{font-weight:700;color:var(--ac);margin-bottom:5px;letter-spacing:.04em}
+body.mob #msg{bottom:calc(var(--js) + var(--ed) + 20px + env(safe-area-inset-bottom,0px))}
+body.pc #msg{bottom:calc(70px + env(safe-area-inset-bottom,0px))}
+@media (max-width:600px),(max-height:520px){
+#hud{font-size:11px;left:6px;right:6px}#hud .p{padding:6px 10px;border-radius:14px}#hud b{font-size:11px}#bar{width:80px}#hud .i{width:14px;height:14px}
+:root{--gs:38px}#gear svg.i{width:19px;height:19px}
+#ib{width:40px!important;height:40px!important;top:calc(92px + env(safe-area-inset-top,0px))!important}
+.ov{padding:8px}.ov .p,#ib2{padding:12px}h1{font-size:20px}h2{font-size:17px}p{font-size:14px}button{padding:8px 12px}#msg{font-size:13px;padding:7px 12px}
+#big{font-size:min(26vw,110px)}.gr{gap:5px}
+}
+@media (max-height:480px) and (orientation:landscape){.ov .p,#ib2{max-height:94%}#dest .p{padding:6px 10px}#dest .p p{margin-bottom:4px!important}}
+
+/* ---- NASA data card ---- */
+.cd .sd{margin-top:0;opacity:.9;font-style:italic}
+.cd .sm{font-size:12px;opacity:.88;margin:6px 0}
+.vb{display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:99px;font-size:12px;font-weight:700;color:#b9f6d9;background:linear-gradient(145deg,rgba(52,211,153,.35),rgba(52,211,153,.12));border:1px solid rgba(52,211,153,.6)}
+.cd a{color:#ffcf8a;text-decoration:underline;display:inline-block;padding:4px 0;margin-right:12px;word-break:break-word;pointer-events:auto}
 </style></head><body>
 <div id="hud"><div class="p"><div class="r"><svg class="i" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg><b id="loc"></b></div><div class="r" style="margin-top:4px"><svg class="i" viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg><span id="cnt"></span></div><div class="r" id="rd" style="margin-top:4px;display:none"><svg class="i" id="ar" viewBox="0 0 24 24"><path d="M12 3l6 16-6-4-6 4z"/></svg><span id="nr"></span></div></div><div class="p" id="ox"><div class="r"><svg class="i" viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 01-12 0c0-4.5 6-11 6-11z"/></svg><span>O₂</span></div><div id="bar"><div id="o2"></div></div></div></div>
 <div id="msg" class="p"></div><div id="big"></div><div id="fade"></div>
-<div id="touch"><div id="joy"><div id="knob"></div></div><button class="tb ic" id="bj" aria-label="Jump" style="bottom:calc(120px + env(safe-area-inset-bottom,0px))"><svg class="i" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button><button class="tb ic" id="bi" aria-label="Interact" style="bottom:calc(36px + env(safe-area-inset-bottom,0px))"><svg class="i" viewBox="0 0 24 24"><path d="M9 11V5a2 2 0 014 0v6M13 10a2 2 0 014 0v3a7 7 0 01-7 7h-1a6 6 0 01-5-3l-2-4a2 2 0 013-2l2 2"/></svg></button></div>
+<div id="touch"><div id="joy"><div id="knob"></div></div><button class="tb ic" id="bj" aria-label="Jump"><svg class="i" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button><button class="tb ic" id="bi" aria-label="Interact"><svg class="i" viewBox="0 0 24 24"><path d="M9 11V5a2 2 0 014 0v6M13 10a2 2 0 014 0v3a7 7 0 01-7 7h-1a6 6 0 01-5-3l-2-4a2 2 0 013-2l2 2"/></svg></button></div>
 <div id="dest" style="display:none;justify-content:center;position:fixed;left:0;right:0;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:6;pointer-events:none"><div class="p" style="text-align:center;pointer-events:auto"><p class="r" style="margin:0 0 10px;justify-content:center"><svg class="i pu" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><ellipse cx="12" cy="12" rx="10" ry="3.5" transform="rotate(-20 12 12)"/></svg><b>Tap the Moon or Mars to travel there</b></p><button class="s" data-w="E"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>Return to Earth</button></div></div>
-<div class="ov" id="modal"><div class="p"><h2 id="mt"></h2><p><mark id="mk"></mark></p><p><b>Mission year:</b> <span id="my"></span></p><p><b>Science:</b> <span id="ms"></span></p><p><b>Why it was left behind:</b> <span id="mw"></span></p><p id="mc"></p><button id="mx"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Continue</button></div></div>
+<div class="ov" id="modal"><div class="p"><h2 id="mt"></h2><div id="mi" class="cd"></div><p id="mc"></p><button id="mx"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Continue</button></div></div>
 <button id="ib" class="ic" onclick="openInv()" title="Inventory (I)" aria-label="Inventory" style="position:fixed;top:calc(120px + env(safe-area-inset-top,0px));left:8px;z-index:4;margin:0;width:46px;height:46px;border-radius:14px"><svg class="i" viewBox="0 0 24 24"><path d="M5 9a4 4 0 014-4h6a4 4 0 014 4v11H5V9z"/><path d="M9 5V3h6v2M8 14h8M9 20v-4h6v4"/></svg></button>
 <div class="ov" id="quiz"><div class="p" id="qb"></div></div>
 <div class="ov" id="inv" style="z-index:8"><div id="ib2"></div></div>
+<button id="gear" class="ic" aria-label="Settings" title="Settings"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.8-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1.1-1.5 1.7 1.7 0 00-1.8.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.8 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1.1 1.7 1.7 0 00-.3-1.8l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.8.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.8-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.8V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/></svg></button>
+<div class="ov" id="set"><div class="p"><h2>Settings</h2><p style="margin:0"><b>Controls</b></p><div class="seg"><button data-m="auto">Auto</button><button data-m="pc">PC</button><button data-m="mobile">Mobile</button></div><p id="det"></p><div class="r" style="flex-wrap:wrap"><button class="s" id="hb">Show controls hint</button><button id="sx">Close</button></div></div></div>
+<div id="hint" class="p"><div class="ht">CONTROLS</div><div class="hr"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span><span>Move</span><span><kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd></span><span>Move / turn</span><span><kbd>Mouse</kbd></span><span>Look (click once to lock)</span><span><kbd>Space</kbd></span><span>Jump</span><span><kbd>Shift</kbd></span><span>Sprint</span><span><kbd>E</kbd> / Click / Right‑click</span><span>Interact</span><span><kbd>I</kbd></span><span>Inventory</span><span><kbd>Esc</kbd></span><span>Free the mouse</span><span><kbd>H</kbd></span><span>Hide / show this</span></div></div>
 <script>
 (function(){var u=["https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js","https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js","three.min.js"],i=0;
 function run(){var s=document.createElement("script");s.textContent=document.getElementById("g").textContent;document.body.appendChild(s)}
@@ -86,7 +123,45 @@ D.push(["L","Odysseus (IM-1)",2024,"First US soft landing since Apollo, by a com
 D.push(["M","Ingenuity",2021,"First powered, controlled aircraft to fly on another planet. It was planned for 5 test flights and flew 72 times, scouting terrain for Perseverance.","A rotor blade was damaged on its 72nd landing in January 2024, so it could never fly again."]);
 let Q=[];const K=["First successful US Mars landing","Studied Mars weather and tested the soil for life","First wheeled rover on Mars","Found evidence of past liquid water","Found clay minerals and worked nearly 15 years","Confirmed water ice below the surface","Detected marsquakes","First US soft landing on the Moon","Apollo 12 astronauts brought back its parts","First chemical analysis of lunar soil","First liftoff from the Moon","Landed in the Tycho highlands; the last Surveyor"];["11","12","14","15","16","17"].forEach(n=>K.push("Launch pad and science base for the Apollo "+n+" crew"));["15","16","17"].forEach(n=>K.push("Electric rover that carried the Apollo "+n+" astronauts"));K.push("First US soft landing since Apollo (commercial lander)","Landed on its side near the south pole carrying an ice drill","Operated upright for a full lunar day");K.push("First helicopter to fly on another planet");
 const WD={E:{n:"Earth Launch Base",g:26,sky:0x7ec8ff,fog:[0x7ec8ff,70,220],c:[0x4caf50,0x3e8e41],amp:.4,sun:1.1,hi:.7},L:{n:"The Moon",g:3.2,sky:0,fog:null,c:[0x9a9a9a,0x777777],amp:1,sun:1.7,hi:.15,cr:1},M:{n:"Mars",g:9,sky:0xc07048,fog:[0xc9805a,25,140],c:[0xb4532a,0x8f3f20],amp:1,sun:1.1,hi:.5}};
-const N=80,CS=2,HALF=80,TOT=D.length;
+const N=80,CS=2,HALF=80;let TOT=D.length;
+/* ---- Real NASA data: JSON loading (with built-in fallback), coordinate placement ---- */
+const OLD={D:D.map(r=>r.slice()),K:K.slice()};
+const FBR={"L":{"latitude":0.67416,"longitude":23.47314},"M":{"latitude":22.269,"longitude":-47.951}},FBC={"Surveyor 1":[-2.4745,-43.3398],"Surveyor 3":[-3.0162,-23.418],"Surveyor 5":[1.4551,23.1943],"Surveyor 6":[0.4742,-1.4275],"Surveyor 7":[-40.9812,-11.5127],"Apollo 11 Descent Stage":[0.67416,23.47314],"Apollo 12 Descent Stage":[-3.0128,-23.4219],"Apollo 14 Descent Stage":[-3.64589,-17.47194],"Apollo 15 Descent Stage":[26.13239,3.6333],"Apollo 16 Descent Stage":[-8.9734,15.5011],"Apollo 17 Descent Stage":[20.1911,30.7723],"Apollo 15 Lunar Rover":[26.13174,3.63803],"Apollo 16 Lunar Rover":[-8.9729,15.5037],"Apollo 17 Lunar Rover":[20.1896,30.7769],"Odysseus (IM-1)":[-80.13,1.44],"Athena (IM-2)":[-84.7906,29.1957],"Blue Ghost Mission 1":[18.562,61.81],"Viking 1":[22.269,-47.951],"Viking 2":[47.668,134.28],"Pathfinder + Sojourner":[19.095,-33.253],"Spirit":[-14.5692,175.4729],"Opportunity":[-1.9462,-5.5266],"Phoenix":[68.22,-125.75],"InSight":[4.502384,135.623447],"Ingenuity":[18.44,77.45]};
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const gType=n=>/Ingenuity/.test(n)?"helicopter":/Pathfinder/.test(n)?"lander + rover":/Spirit|Opportunity|Rover/.test(n)?"rover":/Descent/.test(n)?"descent stage":"lander";
+function fbBody(w){const items=[];OLD.D.forEach((r,i)=>{if(r[0]!==w||!FBC[r[1]])return;items.push({name:r[1],type:gType(r[1]),latitude:FBC[r[1]][0],longitude:FBC[r[1]][1],year:r[2],description:r[3],fate:r[4],key_fact:OLD.K[i]})});return{body:w==="L"?"Moon":"Mars",reference_point:FBR[w],items}}
+function place(items,ref){
+const RD=Math.PI/180,SPAN=56,MIN=11.3,RK=23,B=60;
+const P=items.map(it=>{const dl=(((it.longitude-ref.longitude+180)%360)+360)%360-180,ml=(it.latitude+ref.latitude)/2*RD;return[dl*Math.cos(ml),-(it.latitude-ref.latitude)]});
+let m=0;P.forEach(p=>m=Math.max(m,Math.abs(p[0]),Math.abs(p[1])));const sc=m>0?SPAN/m:1;P.forEach(p=>{p[0]*=sc;p[1]*=sc});
+for(let k=0;k<800;k++){let mv=0;
+for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++){let dx=P[j][0]-P[i][0],dz=P[j][1]-P[i][1],d=Math.hypot(dx,dz);if(d>=MIN)continue;if(d<1e-7){const a=(i+1)*2.399+j;dx=Math.cos(a);dz=Math.sin(a);d=0}else{dx/=d;dz/=d}const s=(MIN-d)/2;P[i][0]-=dx*s;P[i][1]-=dz*s;P[j][0]+=dx*s;P[j][1]+=dz*s;mv=Math.max(mv,s)}
+for(let i=0;i<P.length;i++){const r=Math.hypot(P[i][0],P[i][1]);if(r<RK){let ux,uz;if(r<1e-7){const a=(i+1)*2.399;ux=Math.cos(a);uz=Math.sin(a)}else{ux=P[i][0]/r;uz=P[i][1]/r}P[i][0]=ux*RK;P[i][1]=uz*RK;mv=Math.max(mv,RK-r)}P[i][0]=Math.max(-B,Math.min(B,P[i][0]));P[i][1]=Math.max(-B,Math.min(B,P[i][1]))}
+if(mv<.001)break}
+P.sc=sc;return P}
+
+const okJ=j=>j&&Array.isArray(j.items)&&j.reference_point&&isFinite(j.reference_point.latitude)&&isFinite(j.reference_point.longitude);
+async function getJ(f){try{const c=new AbortController(),t=setTimeout(()=>c.abort(),8000);const r=await fetch(f,{signal:c.signal,cache:"no-cache"});clearTimeout(t);if(!r.ok)throw 0;const j=await r.json();if(!okJ(j))throw 0;j.items=j.items.filter(i=>i&&i.name&&isFinite(i.latitude)&&isFinite(i.longitude));if(!j.items.length)throw 0;return j}catch(e){return null}}
+function assemble(a,b){const nd=[],nk=[];[["L",a],["M",b]].forEach(x=>{const w=x[0],j=x[1]||fbBody(w),ps=place(j.items,j.reference_point);j.items.forEach((it,k)=>{const row=[w,it.name,it.year,it.description||"",it.fate||""];row.j=it;row.px=ps[k][0];row.pz=ps[k][1];nd.push(row);nk.push(it.key_fact||"")})});D.length=0;K.length=0;nd.forEach(r=>D.push(r));nk.forEach(k=>K.push(k));TOT=D.length}
+async function loadData(){msg("Loading moon.json and mars.json…");let r=[null,null];try{r=await Promise.all([getJ("moon.json"),getJ("mars.json")])}catch(e){}
+if(!r[0]||!r[1]){const bad=[!r[0]&&"moon.json",!r[1]&&"mars.json"].filter(Boolean).join(" and ");msg("");const d=document.createElement("div");d.style.cssText="position:fixed;left:12px;right:12px;top:80px;z-index:99;background:#fff;color:#b00;padding:14px;border-radius:12px;font:15px/1.4 system-ui,sans-serif";d.innerHTML="<b>Could not load "+bad+".</b><br>Put moon.json and mars.json in the same folder as index.html and open the game from a web address (for example GitHub Pages), not by double-clicking the file. The game does not start without the real NASA data.";document.body.appendChild(d);return false}
+assemble(r[0],r[1]);return true}
+/* info card (modal + inventory) */
+const fmtC=(j,w)=>{const la=+j.latitude,lo=+j.longitude;let s=Math.abs(la).toFixed(4)+"° "+(la>=0?"N":"S")+", "+Math.abs(lo).toFixed(4)+"° "+(lo>=0?"E":"W");if(j.uncertainty_m!=null&&isFinite(j.uncertainty_m))s+=" (±"+j.uncertainty_m+" m)";if(j.elevation_m!=null&&isFinite(j.elevation_m))s+=" · elevation "+j.elevation_m+" m";return(w==="L"?"Moon":"Mars")+": "+s};
+function cardBody(i){const it=D[i],j=it.j||{};let h="";
+if(j.short_description)h+="<p class=sd>"+esc(j.short_description)+"</p>";
+h+="<p><mark>★ Remember: "+esc(K[i])+"</mark></p><p><b>Mission year:</b> "+esc(it[2])+"</p><p><b>Science:</b> "+esc(it[3])+"</p><p><b>Why it was left behind:</b> "+esc(it[4])+"</p>";
+if(j.nasa_verified)h+="<p class=sm><span class=vb>✔ NASA verified</span>"+(j.data_provider?" "+esc(j.data_provider):"")+"</p>";else if(j.data_provider)h+="<p class=sm>"+esc(j.data_provider)+"</p>";
+if(j.latitude!=null)h+="<p class=sm>📍 "+esc(fmtC(j,it[0]))+(j.note?"<br>"+esc(j.note):"")+"</p>";
+const L=(Array.isArray(j.sources)?j.sources:[]).filter(u=>/^https?:\/\//i.test(u));
+if(L.length)h+="<p class=sm><b>Sources:</b><br>"+L.map((u,k)=>{let t=u;try{t=new URL(u).hostname.replace(/^www\./,"")}catch(e){}return"<a href=\""+esc(u)+"\" target=_blank rel=\"noopener noreferrer\">"+(k+1)+". "+esc(t)+"</a>"}).join(" ")+"</p>";
+return h}
+/* final quiz: one random question per collected item (max 4) */
+function buildQ(){return shuf([...got]).slice(0,4).map(id=>{const j=D[id].j,qs=j&&Array.isArray(j.quiz)?j.quiz.filter(q=>q&&q.question&&q.answer&&Array.isArray(q.wrong_answers)):[];
+if(qs.length){const q=qs[Math.floor(Math.random()*qs.length)],o=[q.answer];q.wrong_answers.forEach(w=>{if(w&&!o.includes(w))o.push(w)});return[q.question,shuf(o),q.answer]}
+const o=[D[id][1]];while(o.length<3){const n=D[Math.floor(Math.random()*TOT)][1];if(!o.includes(n))o.push(n)}return["Which artifact: “"+K[id]+"”?",shuf(o),D[id][1]]})}
+
 const R=new THREE.WebGLRenderer({antialias:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.shadowMap.enabled=true;document.body.appendChild(R.domElement);
 const S=new THREE.Scene(),cam=new THREE.PerspectiveCamera(70,1,.1,600);cam.rotation.order="YXZ";
 function rs(){R.setSize(innerWidth,innerHeight);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()}addEventListener("resize",rs);rs();
@@ -212,7 +287,7 @@ blueghost(){P(cy(1.55,1.55,.85,8),0xc9a24a,0,1.7,0,[0,.39,0],GO);P(cy(1.45,1.45,
 [[1,1],[-1,1],[1,-1],[-1,-1]].forEach(p=>{S3([p[0]*1.3,1.4,p[1]*1.3],[p[0]*2.5,.15,p[1]*2.5],.09,0x888888);pad(p[0]*2.5,p[1]*2.5,.6)});
 P(bx(2.4,.05,1.6),SO,0,2.3,0,0,BL);S3([.9,2.3,.6],[.9,3.6,.6],.04,0xcccccc);P(cy(.5,.5,.05,18),0xf0f0f0,.9,3.7,.6,[.6,0,0]);P(cy(.1,.1,.9,10),0x666666,-1.2,1.1,1.8,[.3,0,0]);P(bx(.4,.3,.4),0xdddddd,-.6,2.5,-.5);
 [-1,1].forEach(k=>S3([k*1.5,1.9,0],[k*4.4,1.9,0],.03,0xdddddd));S3([0,1.9,1.5],[0,1.9,4],.03,0xdddddd);plate("BLUE GHOST",1.8,.34,0,1.5,1.55,0)}};
-const kd=/Viking/.test(n)?"viking":/Pathfinder/.test(n)?"pathfinder":/Spirit|Opportunity/.test(n)?"mer":/Phoenix/.test(n)?"phoenix":/InSight/.test(n)?"insight":/Ingenuity/.test(n)?"ingenuity":/Surveyor/.test(n)?"surv":/Descent/.test(n)?"apollo":/Rover/.test(n)?"lrv":/Odysseus/.test(n)?"odysseus":/Athena/.test(n)?"athena":"blueghost";MK[kd]();T=g;{const r=P(cy(3.6,3.6,.02,28),0x000000,0,.015,0,0,{transparent:true,opacity:.22});r.castShadow=false;for(let i=0;i<6;i++){const a=i*1.1+n.length,q=P(new THREE.DodecahedronGeometry(.12+i%3*.07),0x777777,Math.cos(a)*(3+i%3*.5),.08,Math.sin(a)*(3+i%3*.5),[a,a*2,0]);q.scale.y=.6}}
+const kd=/Viking/.test(n)?"viking":/Pathfinder/.test(n)?"pathfinder":/Spirit|Opportunity/.test(n)?"mer":/Phoenix/.test(n)?"phoenix":/InSight/.test(n)?"insight":/Ingenuity/.test(n)?"ingenuity":/Surveyor/.test(n)?"surv":/Descent/.test(n)?"apollo":/Rover/.test(n)?"lrv":/Odysseus/.test(n)?"odysseus":/Athena/.test(n)?"athena":/Blue Ghost/.test(n)?"blueghost":({"descent stage":"apollo","rover":"mer","lander + rover":"pathfinder","helicopter":"ingenuity"})[(it.j&&it.j.type)||""]||"blueghost";MK[kd]();T=g;{const r=P(cy(3.6,3.6,.02,28),0x000000,0,.015,0,0,{transparent:true,opacity:.22});r.castShadow=false;for(let i=0;i<6;i++){const a=i*1.1+n.length,q=P(new THREE.DodecahedronGeometry(.12+i%3*.07),0x777777,Math.cos(a)*(3+i%3*.5),.08,Math.sin(a)*(3+i%3*.5),[a,a*2,0]);q.scale.y=.6}}
 const b=new THREE.Mesh(cy(.3,.3,18,8),new THREE.MeshBasicMaterial({color:0xffe14a,transparent:true,opacity:.45,fog:false}));b.position.y=9;g.add(b);return g}
 function terrain(d){Hh=[];const cr=[];for(let k=0;k<10;k++){const a=rnd()*6.28,r=24+rnd()*44;cr.push([Math.cos(a)*r,Math.sin(a)*r,5+rnd()*5])}
 const im=new THREE.InstancedMesh(bx(CS,1,CS),new THREE.MeshLambertMaterial({color:0xffffff}),N*N),m=new THREE.Matrix4(),c=new THREE.Color();
@@ -248,7 +323,7 @@ hz(.3,17,14,1.1,-8,0xc77a3a);hz(.3,17,14,1.1,2,0x8fb8d9);[8,12,16,20].forEach(x=
 [[-45,-40],[-45,-53]].forEach(p=>{const m=new THREE.Mesh(new THREE.CylinderGeometry(3.2,5,16,20,1,true),new THREE.MeshStandardMaterial({color:0xcfcfcf,roughness:.7,side:THREE.DoubleSide}));m.position.set(p[0],y+8,p[1]);m.castShadow=true;S.add(m)});sol.push([-50,-40,-58,-35]);cl(.3,8,-42,4,-26,0xbbbbbb,8);const ds=new THREE.Mesh(new THREE.SphereGeometry(3.2,16,10,0,6.3,0,1.1),new THREE.MeshStandardMaterial({color:0xf5f5f5,side:THREE.DoubleSide}));ds.position.set(-42,y+8.5,-26);ds.rotation.x=-1;S.add(ds)}
 function setup(w){wk=w;PH=w==="E"?3:0;IR=w==="E"?9.5:7;sd=w.charCodeAt(0)*97;const d=WD[w];clr();S.background=new THREE.Color(d.sky);S.fog=d.fog?new THREE.Fog(d.fog[0],d.fog[1],d.fog[2]):null;
 S.add(new THREE.HemisphereLight(d.sky||0x8899aa,0x333333,d.hi));const sun=new THREE.DirectionalLight(0xffffff,d.sun);sun.position.set(50,70,30);sun.castShadow=true;const sc=sun.shadow.camera;sc.left=sc.bottom=-100;sc.right=sc.top=100;sc.far=250;sun.shadow.mapSize.set(1024,1024);S.add(sun);
-terrain(d);const IP=[];D.forEach((it,id)=>{if(it[0]!==w)return;let x,z,t=0;do{x=(rnd()-.5)*130;z=(rnd()-.5)*130;t++}while((Math.hypot(x,z)<22||IP.some(p=>Math.hypot(p[0]-x,p[1]-z)<(t>300?6:11)))&&t<3000);IP.push([x,z,id])});
+terrain(d);const IP=[];D.forEach((it,id)=>{if(it[0]===w)IP.push([it.px,it.pz,id])});
 {const sk=new THREE.Mesh(new THREE.CircleGeometry(150,40),new THREE.MeshLambertMaterial({color:d.c[1]}));sk.rotation.x=-Math.PI/2;sk.position.y=-.05;sk.receiveShadow=true;S.add(sk);const rm=new THREE.MeshLambertMaterial({color:w==="E"?0x3d7a3a:d.c[1]});if(w==="E")for(let k=0;k<46;k++){const a=k/46*6.283+rnd()*.1,r=84+rnd()*30,h=16+rnd()*26,c=new THREE.Mesh(new THREE.ConeGeometry(14+rnd()*10,h,6),rm);c.position.set(Math.cos(a)*r,h/2-2,Math.sin(a)*r);S.add(c)}}
 if(w==="L"){stars();const eh=new THREE.Mesh(new THREE.SphereGeometry(14,24,24),new THREE.MeshBasicMaterial({map:earthTex()}));eh.position.set(-120,90,-220);S.add(eh)}const m=new THREE.Matrix4();
 if(w==="E"){for(let k=0;k<28;k++){let x,z;do{x=(rnd()-.5)*110;z=(rnd()-.5)*110}while(Math.hypot(x,z)<20||(z<-24&&Math.abs(x)<52));const y=gh(x,z),t=new THREE.Mesh(bx(.8,3,.8),mat(0x6b4423)),l=new THREE.Mesh(bx(3,3,3),mat(0x2e7d32));t.position.set(x,y+1.5,z);l.position.set(x,y+4.5,z);t.castShadow=l.castShadow=true;S.add(t,l)}for(let k=0;k<12;k++){const c=new THREE.Mesh(bx(10+rnd()*10,2,6+rnd()*6),new THREE.MeshBasicMaterial({color:0xffffff}));c.position.set((rnd()-.5)*200,45+rnd()*20,(rnd()-.5)*200);S.add(c)}const fl=new THREE.InstancedMesh(bx(.35,.5,.35),new THREE.MeshLambertMaterial({color:0xffffff}),90),fc=new THREE.Color();for(let k=0;k<90;k++){let x,z;do{x=(rnd()-.5)*115;z=(rnd()-.5)*115}while(Math.hypot(x,z)<10||(z<-24&&Math.abs(x)<52));m.makeScale(1,1,1);m.setPosition(x,gh(x,z)+.25,z);fl.setMatrixAt(k,m);fc.set([0xff4d6d,0xffd23f,0xffffff,0xb388ff][k%4]);fl.setColorAt(k,fc)}S.add(fl);const su=new THREE.Mesh(bx(14,14,2),new THREE.MeshBasicMaterial({color:0xfff176,fog:false}));su.position.set(110,150,60);su.lookAt(0,0,0);S.add(su)}
@@ -262,33 +337,33 @@ spc=[[5,moonTex(),-9,3,-28,"L","MOON"],[6.5,marsTex(),11,0,-32,"M","MARS"]].map(
 cam.position.set(0,0,0);ex.forEach(p=>{p.visible=false;p.userData.l=0});$("dest").style.display="flex";$("ox").style.visibility="hidden"}
 function msg(t,ms){const e=$("msg");e.innerHTML=t.replace(/\[E\]/g,"<kbd>E</kbd>");e.style.display=t?"block":"none";clearTimeout(msg.t);if(ms)msg.t=setTimeout(()=>e.style.display="none",ms)}
 const playable=()=>(st==="HUB"||st==="SURF")&&!paused;
-function act(){if(!playable())return;if(Math.hypot(pl.x,pl.z)<IR){launch();return}let b=null,bd=4.5;items.forEach(o=>{if(got.has(o.id))return;const d=Math.hypot(o.x-pl.x,o.z-pl.z);if(d<bd){bd=d;b=o}});if(b){got.add(b.id);S.remove(b.g);const it=D[b.id];$("mt").textContent=it[1];$("my").textContent=it[2];$("ms").textContent=it[3];$("mk").textContent="★ Remember: "+K[b.id];$("mw").textContent=it[4];$("mc").textContent="Loaded into cargo: "+got.size+" / "+TOT;$("modal").style.display="flex";paused=true;document.exitPointerLock&&document.exitPointerLock();beep(880,.1);setTimeout(()=>beep(1320,.2),110)}}
+function act(){if(!playable())return;if(Math.hypot(pl.x,pl.z)<IR){launch();return}let b=null,bd=4.5;items.forEach(o=>{if(got.has(o.id))return;const d=Math.hypot(o.x-pl.x,o.z-pl.z);if(d<bd){bd=d;b=o}});if(b){got.add(b.id);S.remove(b.g);const it=D[b.id];$("mt").textContent=it[1];$("mi").innerHTML=cardBody(b.id);$("mc").textContent="Loaded into cargo: "+got.size+" / "+TOT;$("modal").style.display="flex";paused=true;document.exitPointerLock&&document.exitPointerLock();beep(880,.1);setTimeout(()=>beep(1320,.2),110)}}
 function launch(){st="LAUNCH";lt=0;rv=0;cd=-1;msg("");document.exitPointerLock&&document.exitPointerLock();rumble(4)}
 function go(w){$("dest").style.display="none";setup(w);st="LAND";lt=0;rocket.position.y=gy0+PH+60;$("ox").style.visibility="visible";rumble(4)}
 function chase(sh){const p=rocket.position;cam.position.set(p.x+(Math.random()-.5)*sh,p.y+6+(Math.random()-.5)*sh,p.z+22);cam.lookAt(p.x,p.y+8,p.z)}
-function walk(dt){const ox=pl.x,oz=pl.z,d=WD[wk],sp=7*(keys.ShiftLeft?1.6:1);let f=(keys.KeyW?1:0)-(keys.KeyS?1:0)-joy.y,s=(keys.KeyD?1:0)-(keys.KeyA?1:0)+joy.x;const l=Math.hypot(f,s);if(l>1){f/=l;s/=l}
+function walk(dt){const ox=pl.x,oz=pl.z,d=WD[wk],sp=7*(keys.ShiftLeft||keys.ShiftRight?1.6:1);if(!paused)pl.yaw+=((keys.ArrowLeft?1:0)-(keys.ArrowRight?1:0))*2.2*dt;let f=((keys.KeyW||keys.ArrowUp)?1:0)-((keys.KeyS||keys.ArrowDown)?1:0)-joy.y,s=(keys.KeyD?1:0)-(keys.KeyA?1:0)+joy.x;const l=Math.hypot(f,s);if(l>1){f/=l;s/=l}
 if(!paused){pl.x+=(-Math.sin(pl.yaw)*f+Math.cos(pl.yaw)*s)*sp*dt;pl.z+=(-Math.cos(pl.yaw)*f-Math.sin(pl.yaw)*s)*sp*dt}
 pl.x=Math.max(-HALF+2,Math.min(HALF-2,pl.x));pl.z=Math.max(-HALF+2,Math.min(HALF-2,pl.z));const rd=Math.hypot(pl.x,pl.z);if(rd<3.7){pl.x*=3.7/rd;pl.z*=3.7/rd}sol.forEach(s=>{if(pl.x>s[0]&&pl.x<s[1]&&pl.z>s[2]&&pl.z<s[3]){const a=pl.x-s[0],b=s[1]-pl.x,c=pl.z-s[2],e=s[3]-pl.z,m=Math.min(a,b,c,e);if(m===a)pl.x=s[0];else if(m===b)pl.x=s[1];else if(m===c)pl.z=s[2];else pl.z=s[3]}});
 pl.x=Math.max(-HALF+2,Math.min(HALF-2,pl.x));pl.z=Math.max(-HALF+2,Math.min(HALF-2,pl.z));{const hb=()=>gh(pl.x,pl.z)>pl.y+.35;if(hb()){const nx=pl.x,nz=pl.z;pl.z=oz;if(hb()){pl.x=ox;pl.z=nz;if(hb()){pl.x=ox;pl.z=oz}}}}const gy=gh(pl.x,pl.z);if((keys.Space||jf)&&pl.y<=gy+.01&&!paused){pl.vy=Math.max(7,Math.sqrt(2*d.g*1.3));jf=false}pl.vy-=d.g*dt;pl.y+=pl.vy*dt;if(pl.y<=gy){pl.y=gy;pl.vy=0}
 cam.position.set(pl.x,pl.y+1.7,pl.z);cam.rotation.set(pl.pit,pl.yaw,0);
 if(wk!=="E"){const near=Math.hypot(pl.x,pl.z)<9;o2+=(near?25:-.9)*dt;o2=Math.min(100,o2);if(o2<=0){spawn();o2=100;msg("Emergency recall: O₂ refilled at the rocket",3500)}$("o2").style.width=o2+"%"}
-if(!paused){let h="",bd=4.5;if(rd<IR)h="[E] / Interact: enter rocket and launch";items.forEach(o=>{if(got.has(o.id))return;const q=Math.hypot(o.x-pl.x,o.z-pl.z);if(q<bd){bd=q;h="[E] / Interact: collect "+D[o.id][1]}});msg(h)}}
+if(!paused){let h="",bd=4.5;if(rd<IR)h="[E] / Interact: enter rocket and launch";items.forEach(o=>{if(got.has(o.id))return;const q=Math.hypot(o.x-pl.x,o.z-pl.z);if(q<bd){bd=q;h="[E] / Interact: collect "+esc(D[o.id][1])}});msg(h)}}
 const SV=p=>`<svg class="i" viewBox="0 0 24 24">${p}</svg>`,X=SV('<path d="M18 6L6 18M6 6l12 12"/>'),BAG=SV('<path d="M5 9a4 4 0 014-4h6a4 4 0 014 4v11H5V9z"/><path d="M9 5V3h6v2M8 14h8M9 20v-4h6v4"/>'),OK=SV('<path d="M20 6L9 17l-5-5"/>'),RE=SV('<path d="M21 12a9 9 0 11-3-6.7L21 8M21 3v5h-5"/>'),CP=SV('<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>'),
 ic=n=>/Ingenuity/.test(n)?SV('<path d="M12 8v6M3 6h18M7 14h10l-1 5H8z"/>'):/Rover|Spirit|Opportunity|Pathfinder/.test(n)?SV('<path d="M3 14h18l-2-5H9L7 14"/><circle cx="7" cy="17.5" r="2.3"/><circle cx="17" cy="17.5" r="2.3"/><path d="M12 9V5M10 5h4"/>'):/Descent/.test(n)?SV('<path d="M8 7h8l2 4H6z"/><path d="M6 11l-3 9M18 11l3 9M12 11v9M1.5 20h3M19.5 20h3"/>'):SV('<rect x="9" y="9" width="6" height="6" rx="1" transform="rotate(45 12 12)"/><path d="M5 5l3 3M16 16l3 3M4 9l5-5M15 20l5-5"/>');
 function openInv(){let h="<h2>"+BAG+"Inventory ("+got.size+" / "+TOT+")</h2><div class=gr>";D.forEach((it,i)=>{h+=got.has(i)?"<div class='sl f' onclick=showI("+i+")>"+ic(it[1])+"</div>":"<div class=sl></div>"});h+="</div><div id=ii><p>Tap an item to read its info.</p></div><button class=s onclick=closeInv()>"+X+"Close</button>";$("ib2").innerHTML=h;$("inv").style.display="flex";paused=true;document.exitPointerLock&&document.exitPointerLock()}
-function showI(i){const it=D[i];$("ii").innerHTML="<p><b>"+it[1]+"</b> ("+it[2]+")</p><p><mark>★ "+K[i]+"</mark></p><p>"+it[3]+"</p><p><i>Left behind:</i> "+it[4]+"</p>"}
+function showI(i){const it=D[i];$("ii").innerHTML="<div class=cd><p><b>"+esc(it[1])+"</b></p>"+cardBody(i)+"</div>"}
 function closeInv(){$("inv").style.display="none";paused=false}
-function fin(){st="QUIZ";document.exitPointerLock&&document.exitPointerLock();msg("");let h="<h2>Mission Debrief</h2><p>Enter your item count (check your Inventory), then match each clue to the right artifact. Questions only cover items you collected.</p><p>Items collected: <input id=qn type=number min=0 max="+TOT+"> / "+TOT+"</p><button class=s onclick=openInv()>"+BAG+"Open Inventory</button>";Q=[...got].sort(()=>Math.random()-.5).slice(0,4).map(id=>{const o=[D[id][1]];while(o.length<3){const n=D[Math.floor(Math.random()*TOT)][1];if(!o.includes(n))o.push(n)}o.sort(()=>Math.random()-.5);return["Which artifact: “"+K[id]+"”?",o,D[id][1]]});Q.forEach((q,i)=>{h+="<p>"+(i+1)+". "+q[0]+"</p><select id=a"+i+"><option value=''>Choose…</option>"+q[1].map(o=>"<option>"+o+"</option>").join("")+"</select>"});
+function fin(){st="QUIZ";document.exitPointerLock&&document.exitPointerLock();msg("");let h="<h2>Mission Debrief</h2><p>Enter your item count (check your Inventory), then answer a question about each of up to four artifacts you collected. Questions only cover items you collected.</p><p>Items collected: <input id=qn type=number min=0 max="+TOT+"> / "+TOT+"</p><button class=s onclick=openInv()>"+BAG+"Open Inventory</button>";Q=buildQ();Q.forEach((q,i)=>{h+="<p>"+(i+1)+". "+esc(q[0])+"</p><select id=a"+i+"><option value=''>Choose…</option>"+q[1].map(o=>"<option value=\""+esc(o)+"\">"+esc(o)+"</option>").join("")+"</select>"});
 h+="<p id=qr></p><button id=qs>"+OK+"Submit Report</button><button id=qk class=s>"+CP+"Keep Exploring</button>";$("qb").innerHTML=h;$("quiz").style.display="flex";$("qs").onclick=()=>{const c=+$("qn").value,w=Q.filter((q,i)=>$("a"+i).value!==q[2]).length;if($("qn").value===""||c!==got.size){$("qr").textContent="Your item count doesn’t match your cargo log. Check the counter and retry.";beep(200,.3,"sawtooth");return}if(w){$("qr").textContent=w+" answer(s) incorrect. Review the facts and retry.";beep(200,.3,"sawtooth");return}
 $("qb").innerHTML=got.size===TOT?"<h1>Mission Accomplished!</h1><p>You recovered all "+TOT+" artifacts and passed the debrief. These machines are abandoned, but not forgotten.</p><button onclick=location.reload()>"+RE+"Play Again</button>":"<h1>Game Over (for now)</h1><p>Your answers were correct, but you didn’t complete the whole mission: "+got.size+" of "+TOT+" artifacts recovered. Collect everything and answer correctly to fully win.</p><button onclick=location.reload()>"+RE+"Play Again</button>";[523,659,784,1047].forEach((f,i)=>setTimeout(()=>beep(f,.3,"triangle"),i*150))};
 $("qk").onclick=()=>{$("quiz").style.display="none";st="HUB";spawn()}}
-function loop(t){requestAnimationFrame(loop);const dt=Math.min(.05,(t-last)/1000||0);last=t;time+=dt;upEx(dt);
-$("loc").textContent=wk==="S"?"Deep Space":WD[wk].n;$("cnt").textContent=got.size+" / "+TOT;$("touch").style.display=TD&&(st==="HUB"||st==="SURF")&&!paused?"block":"none";$("ib").style.display=(st==="LAUNCH"||st==="LAND")?"none":"flex";
+function loop(t){requestAnimationFrame(loop);const dt=Math.min(.05,(t-last)/1000||0);last=t;time+=dt;upEx(dt);if(st!==hs0){hs0=st;if(!MOB&&(st==="HUB"||st==="SURF"))showHint(8000)}$("hint").style.visibility=(!MOB&&(st==="HUB"||st==="SURF")&&!paused)?"visible":"hidden";
+$("loc").textContent=wk==="S"?"Deep Space":WD[wk].n;$("cnt").textContent=got.size+" / "+TOT;$("touch").style.display=MOB&&(st==="HUB"||st==="SURF")&&!paused?"block":"none";$("ib").style.display=(st==="LAUNCH"||st==="LAND")?"none":"flex";
 {const hs=st==="SURF";let nb=null,nd=1e9,left=0;if(hs)items.forEach(o=>{if(got.has(o.id))return;left++;const q=Math.hypot(o.x-pl.x,o.z-pl.z);if(q<nd){nd=q;nb=o}});$("rd").style.display=hs?"flex":"none";if(hs){$("nr").textContent=nb?left+" left · "+Math.round(nd)+" m":"All found here";$("ar").style.opacity=nb?1:.25;if(nb)$("ar").style.transform="rotate("+((Math.atan2(nb.x-pl.x,-(nb.z-pl.z))+pl.yaw)*57.2958)+"deg)"}}
 if(st==="HUB"||st==="SURF")walk(dt);
 else if(st==="LAUNCH"){lt+=dt;const c=Math.floor(lt);if(lt<3){$("big").textContent=3-c;if(c!==cd){cd=c;beep(520,.2)}chase(.3+lt*.3);emit(0,rocket.position.y,0,-6,1)}else{if(lt<4){$("big").textContent="Liftoff!";if(cd!==3){cd=3;beep(1040,.5)}}else $("big").textContent="";rv+=22*dt;rocket.position.y+=rv*dt;chase(.6);emit(0,rocket.position.y,0,-14,3);if(lt<4.5)emit(0,gy0,0,0,2,1)}
 if(lt>7&&$("fade").style.opacity!=="1")$("fade").style.opacity=1;if(lt>8){$("big").textContent="";spaceSetup();$("fade").style.opacity=0}}
-else if(st==="LAND"){lt+=dt;rocket.position.y=gy0+PH+Math.pow(Math.max(0,1-lt/4),2)*60;chase(.3);if(lt<4)emit(0,rocket.position.y,0,-14,3);$("big").textContent="";if(lt<1)msg("Landing sequence engaged…");if(lt>=4){emit(0,gy0+.5,0,0,20,1);msg("");if(wk==="E")fin();else{st="SURF";o2=100;spawn();msg("Find the glowing beacons! Click or tap to control.",4000)}}}
+else if(st==="LAND"){lt+=dt;rocket.position.y=gy0+PH+Math.pow(Math.max(0,1-lt/4),2)*60;chase(.3);if(lt<4)emit(0,rocket.position.y,0,-14,3);$("big").textContent="";if(lt<1)msg("Landing sequence engaged…");if(lt>=4){emit(0,gy0+.5,0,0,20,1);msg("");if(wk==="E")fin();else{st="SURF";o2=100;spawn();msg(MOB?"Find the glowing beacons! Use the stick to move.":"Find the glowing beacons! Press [E] near one.",4000)}}}
 else if(st==="SPACE"){spc.forEach(m=>{m.rotation.y+=dt*.1;if(m.userData.w){const y=m.userData.y+Math.sin(time*1.2+m.userData.r)*.8;m.position.y=y;m.userData.s.position.y=y+m.userData.r+2.2}});cam.rotation.set(0,Math.sin(time*.1)*.12,0)}
 R.render(S,cam)}
 addEventListener("pointerdown",au,{once:true});addEventListener("keydown",au,{once:true});
@@ -298,13 +373,34 @@ addEventListener("keydown",e=>{keys[e.code]=1;if(e.code==="KeyE")act();if(e.code
 const cv=R.domElement;let lk=-1,lx=0,ly=0;
 document.addEventListener("mousemove",e=>{if(document.pointerLockElement===cv&&playable()){pl.yaw-=e.movementX*.0025;pl.pit=Math.max(-1.4,Math.min(1.4,pl.pit-e.movementY*.0025))}});
 const rc=new THREE.Raycaster();function pick(e){rc.setFromCamera({x:e.clientX/innerWidth*2-1,y:-(e.clientY/innerHeight)*2+1},cam);const h=rc.intersectObjects(spc.filter(m=>m.userData.w))[0];if(h){beep(700,.1);go(h.object.userData.w)}}
-cv.addEventListener("pointerdown",e=>{if(st==="SPACE"){pick(e);return}if(e.pointerType==="mouse"){if(document.pointerLockElement!==cv){if(playable())cv.requestPointerLock()}else act()}else{lk=e.pointerId;lx=e.clientX;ly=e.clientY;cv.setPointerCapture(lk)}});
+cv.addEventListener("pointerdown",e=>{if(st==="SPACE"){pick(e);return}if(e.pointerType==="mouse"&&!MOB){if(e.button===2){act();return}if(document.pointerLockElement!==cv){if(playable())cv.requestPointerLock()}else act()}else{lk=e.pointerId;lx=e.clientX;ly=e.clientY;cv.setPointerCapture(lk)}});
 cv.addEventListener("pointermove",e=>{if(e.pointerId===lk&&playable()){pl.yaw-=(e.clientX-lx)*.005;pl.pit=Math.max(-1.4,Math.min(1.4,pl.pit-(e.clientY-ly)*.005));lx=e.clientX;ly=e.clientY}});
 cv.addEventListener("pointerup",e=>{if(e.pointerId===lk)lk=-1});
-const TD="ontouchstart" in window||navigator.maxTouchPoints>0;
-const jy=$("joy");let jp=-1;const jm=e=>{const r=jy.getBoundingClientRect();let x=(e.clientX-r.left-60)/50,y=(e.clientY-r.top-60)/50;const l=Math.hypot(x,y);if(l>1){x/=l;y/=l}joy.x=x;joy.y=y;$("knob").style.transform="translate("+x*40+"px,"+y*40+"px)"};
+let MODE="auto",MOB=false,hs0="",hT=0,sp0=false;try{MODE=localStorage.getItem("mode")||"auto"}catch(e){}
+if(!/^(auto|pc|mobile)$/.test(MODE))MODE="auto";
+const detM=()=>matchMedia("(pointer:coarse)").matches||(("ontouchstart" in window||navigator.maxTouchPoints>0)&&Math.min(innerWidth,innerHeight)<700);
+function showHint(ms){const h=$("hint");h.classList.add("on");clearTimeout(hT);hT=setTimeout(()=>h.classList.remove("on"),ms||10000)}
+function toggleHint(){const h=$("hint");if(h.classList.contains("on")){clearTimeout(hT);h.classList.remove("on")}else showHint(10000)}
+function applyMode(){MOB=MODE==="mobile"||(MODE==="auto"&&detM());document.body.classList.toggle("mob",MOB);document.body.classList.toggle("pc",!MOB);
+if(MOB){document.exitPointerLock&&document.exitPointerLock();$("hint").classList.remove("on")}else showHint(8000);
+joy.x=joy.y=0;$("knob").style.transform="";lk=-1;
+document.querySelectorAll("#set [data-m]").forEach(b=>b.classList.toggle("s",b.dataset.m!==MODE));
+$("det").textContent="Detected: "+(detM()?"touch device":"PC")+" · Using: "+(MOB?"Mobile":"PC")+" mode";$("hb").style.display=MOB?"none":""}
+function setMode(m){MODE=m;try{localStorage.setItem("mode",m)}catch(e){}applyMode();msg(MOB?"Mobile mode: stick to move, drag the screen to look":"PC mode: WASD to move, <kbd>E</kbd> or click to interact",3500)}
+function openSet(){const hid=i=>getComputedStyle($(i)).display==="none";if(!hid("modal")||!hid("inv")||!hid("quiz"))return;sp0=!paused;paused=true;document.exitPointerLock&&document.exitPointerLock();$("set").style.display="flex"}
+function closeSet(){$("set").style.display="none";if(sp0)paused=false;sp0=false}
+$("gear").onclick=()=>getComputedStyle($("set")).display==="none"?openSet():closeSet();$("sx").onclick=closeSet;$("set").addEventListener("pointerdown",e=>{if(e.target===$("set"))closeSet()});
+$("hb").onclick=()=>{closeSet();showHint(12000)};
+document.querySelectorAll("#set [data-m]").forEach(b=>b.onclick=()=>setMode(b.dataset.m));
+addEventListener("resize",()=>{if(MODE==="auto"&&detM()!==MOB)applyMode()});
+addEventListener("keydown",e=>{if(e.code==="KeyH"&&!e.repeat&&!MOB)toggleHint();if(e.code==="Escape"&&getComputedStyle($("set")).display!=="none")closeSet();if(e.code.startsWith("Arrow"))e.preventDefault()});
+addEventListener("blur",()=>{for(const k in keys)keys[k]=0});
+cv.addEventListener("contextmenu",e=>e.preventDefault());document.addEventListener("contextmenu",e=>{if(MOB||playable())e.preventDefault()});
+applyMode();
+const jy=$("joy");let jp=-1;const jm=e=>{const r=jy.getBoundingClientRect(),w=r.width;let x=(e.clientX-r.left-w/2)/(w*.42),y=(e.clientY-r.top-w/2)/(w*.42);const l=Math.hypot(x,y);if(l>1){x/=l;y/=l}joy.x=x;joy.y=y;$("knob").style.transform="translate("+x*w/3+"px,"+y*w/3+"px)"};
 jy.addEventListener("pointerdown",e=>{jp=e.pointerId;jy.setPointerCapture(jp);jm(e)});jy.addEventListener("pointermove",e=>{if(e.pointerId===jp)jm(e)});
 const je=e=>{if(e.pointerId===jp){jp=-1;joy.x=joy.y=0;$("knob").style.transform=""}};jy.addEventListener("pointerup",je);jy.addEventListener("pointercancel",je);
 $("bj").addEventListener("pointerdown",()=>jf=true);$("bi").addEventListener("pointerdown",act);
-$("ox").style.visibility="hidden";setup("E");spawn();st="HUB";msg("Walk to the rocket and press E or tap Interact. Click the screen to look around.",6000);requestAnimationFrame(loop);
+$("ox").style.visibility="hidden";function boot(){setup("E");spawn();st="HUB";msg("✔ "+TOT+" items loaded from moon.json + mars.json<br>"+(MOB?"Walk to the rocket and tap Interact. Drag the screen to look around.":"Walk to the rocket and press [E]. Click the screen to look around."),6000);requestAnimationFrame(loop)}
+loadData().then(ok=>{if(ok)boot()});
 </script></body></html>
