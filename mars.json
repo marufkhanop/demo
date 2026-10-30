@@ -3,24 +3,27 @@
   "coordinate_system": "Planetocentric. Latitude N+, longitude E+ (-180..180; NASA's 0..360 values converted).",
   "reference_point": {
     "name": "Viking 1",
-    "latitude": 22.269,
-    "longitude": -47.951
+    "latitude": 22.27,
+    "longitude": -47.95
   },
   "items": [
     {
       "name": "Viking 1",
       "type": "lander",
-      "latitude": 22.269,
-      "longitude": -47.951,
-      "data_provider": "NASA PDS Geosciences Node (Mars Orbital Data Explorer)",
+      "latitude": 22.27,
+      "longitude": -47.95,
+      "data_provider": "NASA Goddard Institute for Space Studies (Mars24 Sunclock, Mars Lander Missions list)",
       "year": 1976,
       "description": "First successful US Mars landing. Photographed the surface, analyzed the air and ran biology experiments.",
       "fate": "A bad software command ended contact in 1982, and nobody could repair it.",
       "sources": [
-        "https://ode.rsl.wustl.edu/mars/pagehelp/Content/Missions_Instruments/Landing_Sites.htm"
+        "https://www.giss.nasa.gov/tools/mars24/help/landers.html",
+        "https://nssdc.gsfc.nasa.gov/planetary/viking.html"
       ],
       "nasa_verified": true,
       "short_description": "NASA's first successful Mars lander, searching for life in 1976.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "First successful US Mars landing",
       "quiz": [
         {
@@ -41,22 +44,27 @@
             "A meteorite strike"
           ]
         }
-      ]
+      ],
+      "uncertainty_m": null,
+      "note": ""
     },
     {
       "name": "Viking 2",
       "type": "lander",
-      "latitude": 47.668,
+      "latitude": 48.27,
       "longitude": 134.28,
-      "data_provider": "NASA PDS Geosciences Node (Mars Orbital Data Explorer)",
+      "data_provider": "NASA Goddard Institute for Space Studies (Mars24 Sunclock, Mars Lander Missions list)",
       "year": 1976,
       "description": "Tracked Martian weather, studied soil chemistry and tested for life in Utopia Planitia.",
       "fate": "Its batteries failed in 1980.",
       "sources": [
-        "https://ode.rsl.wustl.edu/mars/pagehelp/Content/Missions_Instruments/Landing_Sites.htm"
+        "https://www.giss.nasa.gov/tools/mars24/help/landers.html",
+        "https://nssdc.gsfc.nasa.gov/planetary/viking.html"
       ],
       "nasa_verified": true,
       "short_description": "Twin of Viking 1, studying weather and soil in Utopia Planitia.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "Studied Mars weather and tested the soil for life",
       "quiz": [
         {
@@ -77,22 +85,27 @@
             "It got stuck in soft sand"
           ]
         }
-      ]
+      ],
+      "uncertainty_m": null,
+      "note": ""
     },
     {
       "name": "Pathfinder + Sojourner",
       "type": "lander + rover",
-      "latitude": 19.095,
-      "longitude": -33.253,
-      "data_provider": "NASA PDS Geosciences Node (Mars Orbital Data Explorer)",
+      "latitude": 19.47,
+      "longitude": -33.25,
+      "data_provider": "NASA Goddard Institute for Space Studies (Mars24 Sunclock, Mars Lander Missions list)",
       "year": 1997,
       "description": "Sojourner was the first wheeled rover on Mars; the airbag landing proved low-cost planetary entry.",
-      "fate": "The lander\u2019s battery ran down and contact faded in 1997.",
+      "fate": "The lander’s battery ran down and contact faded in 1997.",
       "sources": [
-        "https://ode.rsl.wustl.edu/mars/pagehelp/Content/Missions_Instruments/Landing_Sites.htm"
+        "https://www.giss.nasa.gov/tools/mars24/help/landers.html",
+        "https://science.nasa.gov/mission/mars-pathfinder"
       ],
       "nasa_verified": true,
       "short_description": "Airbag-landed lander that deployed Sojourner, the first Mars rover.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "First wheeled rover on Mars",
       "quiz": [
         {
@@ -113,23 +126,29 @@
             "A runway landing"
           ]
         }
-      ]
+      ],
+      "uncertainty_m": null,
+      "note": ""
     },
     {
       "name": "Spirit",
       "type": "rover",
-      "latitude": -14.5692,
-      "longitude": 175.4729,
-      "data_provider": "NASA PDS Geosciences Node (Mars Orbital Data Explorer)",
-      "note": "Cartographic triangulation value. Doppler radio-tracking value: 14.571892 S, 175.47848 E.",
+      "latitude": -14.57,
+      "longitude": 175.48,
+      "data_provider": "NASA Goddard Institute for Space Studies (Mars24 Sunclock, Mars Lander Missions list)",
+      "note": "",
       "year": 2004,
       "description": "Explored Gusev Crater and found evidence of past liquid water.",
       "fate": "Stuck in soft sand, it ran out of power in the 2010 Martian winter.",
       "sources": [
-        "https://ode.rsl.wustl.edu/mars/pagehelp/Content/Missions_Instruments/Landing_Sites.htm"
+        "https://www.giss.nasa.gov/tools/mars24/help/landers.html",
+        "https://ares.jsc.nasa.gov/missions/mer/",
+        "https://spaceplace.nasa.gov/mars-spirit-opportunity/"
       ],
       "nasa_verified": true,
       "short_description": "Rover that found signs of past water in Gusev Crater.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "Found evidence of past liquid water",
       "quiz": [
         {
@@ -150,23 +169,28 @@
             "A broken wheel on a boulder"
           ]
         }
-      ]
+      ],
+      "uncertainty_m": null
     },
     {
       "name": "Opportunity",
       "type": "rover",
-      "latitude": -1.9462,
-      "longitude": -5.5266,
-      "data_provider": "NASA PDS Geosciences Node (Mars Orbital Data Explorer)",
-      "note": "Cartographic triangulation value. Doppler radio-tracking value: 1.9483 S, 354.47417 E.",
+      "latitude": -1.95,
+      "longitude": -5.53,
+      "data_provider": "NASA Goddard Institute for Space Studies (Mars24 Sunclock, Mars Lander Missions list)",
+      "note": "",
       "year": 2004,
       "description": "Worked nearly 15 years in Meridiani Planum and discovered clay minerals.",
       "fate": "A 2018 global dust storm blocked its sunlight; the mission ended in 2019.",
       "sources": [
-        "https://ode.rsl.wustl.edu/mars/pagehelp/Content/Missions_Instruments/Landing_Sites.htm"
+        "https://www.giss.nasa.gov/tools/mars24/help/landers.html",
+        "https://ares.jsc.nasa.gov/missions/mer/",
+        "https://spaceplace.nasa.gov/mars-spirit-opportunity/"
       ],
       "nasa_verified": true,
       "short_description": "Long-lived rover that worked in Meridiani Planum for nearly 15 years.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "Found clay minerals and worked nearly 15 years",
       "quiz": [
         {
@@ -187,22 +211,26 @@
             "Soft sand"
           ]
         }
-      ]
+      ],
+      "uncertainty_m": null
     },
     {
       "name": "Phoenix",
       "type": "lander",
       "latitude": 68.22,
       "longitude": -125.75,
-      "data_provider": "NASA PDS Geosciences Node (Mars Orbital Data Explorer)",
+      "data_provider": "NASA Goddard Institute for Space Studies (Mars24 Sunclock, Mars Lander Missions list)",
       "year": 2008,
       "description": "Dug into Martian arctic soil and confirmed water ice below the surface.",
       "fate": "Built for one summer, it could not survive the dark polar winter.",
       "sources": [
-        "https://ode.rsl.wustl.edu/mars/pagehelp/Content/Missions_Instruments/Landing_Sites.htm"
+        "https://www.giss.nasa.gov/tools/mars24/help/landers.html",
+        "https://science.nasa.gov/mission/phoenix"
       ],
       "nasa_verified": true,
       "short_description": "Arctic lander that dug up and confirmed Martian water ice.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "Confirmed water ice below the surface",
       "quiz": [
         {
@@ -223,23 +251,27 @@
             "A rotor blade failure"
           ]
         }
-      ]
+      ],
+      "uncertainty_m": null,
+      "note": ""
     },
     {
       "name": "InSight",
       "type": "lander",
-      "latitude": 4.502384,
-      "longitude": 135.623447,
-      "data_provider": "NASA/JPL InSight team (Golombek et al. 2020, HiRISE-georeferenced)",
+      "latitude": 4.5,
+      "longitude": 135.62,
+      "data_provider": "NASA Goddard Institute for Space Studies (Mars24 Sunclock, Mars Lander Missions list)",
       "year": 2018,
       "description": "Recorded marsquakes and measured the interior and heat of Mars.",
       "fate": "Dust covered its solar panels and it powered down in 2022.",
       "sources": [
-        "https://repository.si.edu/items/dbd04061-1846-49b8-8e54-adaba26c14e1",
+        "https://www.giss.nasa.gov/tools/mars24/help/landers.html",
         "https://science.nasa.gov/resource/insights-landing-site-elysium-planitia/"
       ],
       "nasa_verified": true,
       "short_description": "Stationary lander that listened for marsquakes.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "Detected marsquakes",
       "quiz": [
         {
@@ -260,7 +292,9 @@
             "Volcanic ash"
           ]
         }
-      ]
+      ],
+      "uncertainty_m": null,
+      "note": ""
     },
     {
       "name": "Ingenuity",
@@ -278,6 +312,8 @@
         "https://science.nasa.gov/?p=326193"
       ],
       "short_description": "Small helicopter that proved powered flight on Mars.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "First helicopter to fly on another planet",
       "quiz": [
         {
@@ -298,7 +334,8 @@
             "Lost contact with Perseverance"
           ]
         }
-      ]
+      ],
+      "uncertainty_m": null
     }
   ]
 }
