@@ -12,17 +12,18 @@
       "type": "lander",
       "latitude": -2.4745,
       "longitude": -43.3398,
-      "uncertainty_m": 5.6,
-      "data_provider": "NASA NSSDCA (Goddard) - LRO/LROC camera positions",
+      "uncertainty_m": null,
+      "data_provider": "NASA NSSDCA (NASA Goddard Space Flight Center)",
       "year": 1966,
       "description": "First US soft landing on the Moon. Tested landing radar and sent back thousands of photos.",
       "fate": "It was a robot with no return trip; it went silent after the lunar nights.",
       "sources": [
-        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
-        "https://www.lroc.asu.edu/data/support/downloads/2016_LROC_Coordinates_of_Human_Features.pdf"
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html"
       ],
       "nasa_verified": true,
       "short_description": "First American robot to soft-land on the Moon.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "First US soft landing on the Moon",
       "quiz": [
         {
@@ -43,24 +44,26 @@
             "It crashed into a crater"
           ]
         }
-      ]
+      ],
+      "note": ""
     },
     {
       "name": "Surveyor 3",
       "type": "lander",
       "latitude": -3.0162,
       "longitude": -23.418,
-      "uncertainty_m": 2.6,
-      "data_provider": "NASA NSSDCA (Goddard) - LRO/LROC camera positions",
+      "uncertainty_m": null,
+      "data_provider": "NASA NSSDCA (NASA Goddard Space Flight Center)",
       "year": 1967,
       "description": "Dug the soil with a scoop. Apollo 12 astronauts later visited it and brought home pieces to study.",
       "fate": "Its work was done; the rest stayed in the Ocean of Storms.",
       "sources": [
-        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
-        "https://www.lroc.asu.edu/data/support/downloads/2016_LROC_Coordinates_of_Human_Features.pdf"
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html"
       ],
       "nasa_verified": true,
       "short_description": "Robotic lander with a scoop, later visited by Apollo 12.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "Apollo 12 astronauts brought back its parts",
       "quiz": [
         {
@@ -81,24 +84,26 @@
             "A rover wheel"
           ]
         }
-      ]
+      ],
+      "note": ""
     },
     {
       "name": "Surveyor 5",
       "type": "lander",
       "latitude": 1.4551,
       "longitude": 23.1943,
-      "uncertainty_m": 11.9,
-      "data_provider": "NASA NSSDCA (Goddard) - LRO/LROC camera positions",
+      "uncertainty_m": null,
+      "data_provider": "NASA NSSDCA (NASA Goddard Space Flight Center)",
       "year": 1967,
       "description": "Made the first alpha-scattering chemical analysis of lunar soil.",
       "fate": "Power faded after several lunar nights.",
       "sources": [
-        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
-        "https://www.lroc.asu.edu/data/support/downloads/2016_LROC_Coordinates_of_Human_Features.pdf"
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html"
       ],
       "nasa_verified": true,
       "short_description": "Lander that chemically analyzed lunar soil for the first time.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "First chemical analysis of lunar soil",
       "quiz": [
         {
@@ -119,24 +124,26 @@
             "A bad software command"
           ]
         }
-      ]
+      ],
+      "note": ""
     },
     {
       "name": "Surveyor 6",
       "type": "lander",
       "latitude": 0.4742,
       "longitude": -1.4275,
-      "uncertainty_m": 6.7,
-      "data_provider": "NASA NSSDCA (Goddard) - LRO/LROC camera positions",
+      "uncertainty_m": null,
+      "data_provider": "NASA NSSDCA (NASA Goddard Space Flight Center)",
       "year": 1967,
       "description": "Performed the first liftoff from the Moon, a short hop to a new spot.",
       "fate": "Like all Surveyors, it was never designed to come home.",
       "sources": [
-        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
-        "https://www.lroc.asu.edu/data/support/downloads/2016_LROC_Coordinates_of_Human_Features.pdf"
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html"
       ],
       "nasa_verified": true,
       "short_description": "Lander that lifted off and hopped to a new spot.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "First liftoff from the Moon",
       "quiz": [
         {
@@ -157,24 +164,26 @@
             "Surveyor 5"
           ]
         }
-      ]
+      ],
+      "note": ""
     },
     {
       "name": "Surveyor 7",
       "type": "lander",
       "latitude": -40.9812,
       "longitude": -11.5127,
-      "uncertainty_m": 3.5,
-      "data_provider": "NASA NSSDCA (Goddard) - LRO/LROC camera positions",
+      "uncertainty_m": null,
+      "data_provider": "NASA NSSDCA (NASA Goddard Space Flight Center)",
       "year": 1968,
       "description": "Landed in rugged highlands near Tycho crater and analyzed highland soil.",
       "fate": "It was the last Surveyor; its power ran out.",
       "sources": [
-        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
-        "https://www.lroc.asu.edu/data/support/downloads/2016_LROC_Coordinates_of_Human_Features.pdf"
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html"
       ],
       "nasa_verified": true,
       "short_description": "Last Surveyor, exploring the rugged highlands near Tycho.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "Landed in the Tycho highlands; the last Surveyor",
       "quiz": [
         {
@@ -195,25 +204,27 @@
             "It was the only one that came home"
           ]
         }
-      ]
+      ],
+      "note": ""
     },
     {
       "name": "Apollo 11 Descent Stage",
       "type": "descent stage",
       "latitude": 0.67416,
       "longitude": 23.47314,
-      "uncertainty_m": 0.3,
-      "data_provider": "NASA NSSDCA (Goddard) - LRO/LROC camera positions",
+      "uncertainty_m": null,
+      "data_provider": "NASA NSSDCA (NASA Goddard Space Flight Center)",
       "year": 1969,
       "description": "Served as launch pad for the ascent stage and base for science packages (EASEP, then ALSEP) measuring moonquakes, heat flow and dust.",
       "fate": "Only the top half flew home; the heavy stage stayed to save fuel for carrying rock samples.",
       "sources": [
         "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
-        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html",
-        "https://www.lroc.asu.edu/data/support/downloads/2016_LROC_Coordinates_of_Human_Features.pdf"
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html"
       ],
       "nasa_verified": true,
       "short_description": "Base of the lander that carried the first astronauts to the Moon.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "Left at Tranquility Base, where Armstrong and Aldrin made the first crewed Moon landing",
       "quiz": [
         {
@@ -234,25 +245,27 @@
             "Served as a garage for a rover"
           ]
         }
-      ]
+      ],
+      "note": ""
     },
     {
       "name": "Apollo 12 Descent Stage",
       "type": "descent stage",
       "latitude": -3.0128,
       "longitude": -23.4219,
-      "uncertainty_m": 2.2,
-      "data_provider": "NASA NSSDCA (Goddard) - LRO/LROC camera positions",
+      "uncertainty_m": null,
+      "data_provider": "NASA NSSDCA (NASA Goddard Space Flight Center)",
       "year": 1969,
       "description": "Served as launch pad for the ascent stage and base for science packages (EASEP, then ALSEP) measuring moonquakes, heat flow and dust.",
       "fate": "Only the top half flew home; the heavy stage stayed to save fuel for carrying rock samples.",
       "sources": [
         "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
-        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html",
-        "https://www.lroc.asu.edu/data/support/downloads/2016_LROC_Coordinates_of_Human_Features.pdf"
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html"
       ],
       "nasa_verified": true,
       "short_description": "Base of the Apollo 12 lander, parked near Surveyor 3.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "Landed within walking distance of Surveyor 3 on the Ocean of Storms",
       "quiz": [
         {
@@ -273,25 +286,27 @@
             "John Young and Charles Duke"
           ]
         }
-      ]
+      ],
+      "note": ""
     },
     {
       "name": "Apollo 14 Descent Stage",
       "type": "descent stage",
       "latitude": -3.64589,
       "longitude": -17.47194,
-      "uncertainty_m": 0.4,
-      "data_provider": "NASA NSSDCA (Goddard) - LRO/LROC camera positions",
+      "uncertainty_m": null,
+      "data_provider": "NASA NSSDCA (NASA Goddard Space Flight Center)",
       "year": 1971,
       "description": "Served as launch pad for the ascent stage and base for science packages (EASEP, then ALSEP) measuring moonquakes, heat flow and dust.",
       "fate": "Only the top half flew home; the heavy stage stayed to save fuel for carrying rock samples.",
       "sources": [
         "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
-        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html",
-        "https://www.lroc.asu.edu/data/support/downloads/2016_LROC_Coordinates_of_Human_Features.pdf"
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html"
       ],
       "nasa_verified": true,
       "short_description": "Base of the Apollo 14 lander, with a hand cart instead of a rover.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "Landed at Fra Mauro; the crew pulled a hand cart instead of driving",
       "quiz": [
         {
@@ -312,25 +327,27 @@
             "Soccer"
           ]
         }
-      ]
+      ],
+      "note": ""
     },
     {
       "name": "Apollo 15 Descent Stage",
       "type": "descent stage",
       "latitude": 26.13239,
       "longitude": 3.6333,
-      "uncertainty_m": 1,
-      "data_provider": "NASA NSSDCA (Goddard) - LRO/LROC camera positions",
+      "uncertainty_m": null,
+      "data_provider": "NASA NSSDCA (NASA Goddard Space Flight Center)",
       "year": 1971,
       "description": "Served as launch pad for the ascent stage and base for science packages (EASEP, then ALSEP) measuring moonquakes, heat flow and dust.",
       "fate": "Only the top half flew home; the heavy stage stayed to save fuel for carrying rock samples.",
       "sources": [
         "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
-        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html",
-        "https://www.lroc.asu.edu/data/support/downloads/2016_LROC_Coordinates_of_Human_Features.pdf"
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html"
       ],
       "nasa_verified": true,
       "short_description": "Base of the Apollo 15 lander, at Hadley Rille.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "First Apollo landing with a Lunar Rover, at Hadley Rille",
       "quiz": [
         {
@@ -351,25 +368,27 @@
             "A camera and a glove"
           ]
         }
-      ]
+      ],
+      "note": ""
     },
     {
       "name": "Apollo 16 Descent Stage",
       "type": "descent stage",
       "latitude": -8.9734,
       "longitude": 15.5011,
-      "uncertainty_m": 3,
-      "data_provider": "NASA NSSDCA (Goddard) - LRO/LROC camera positions",
+      "uncertainty_m": null,
+      "data_provider": "NASA NSSDCA (NASA Goddard Space Flight Center)",
       "year": 1972,
       "description": "Served as launch pad for the ascent stage and base for science packages (EASEP, then ALSEP) measuring moonquakes, heat flow and dust.",
       "fate": "Only the top half flew home; the heavy stage stayed to save fuel for carrying rock samples.",
       "sources": [
         "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
-        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html",
-        "https://www.lroc.asu.edu/data/support/downloads/2016_LROC_Coordinates_of_Human_Features.pdf"
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html"
       ],
       "nasa_verified": true,
       "short_description": "Base of the Apollo 16 lander, in the Descartes Highlands.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "First landing in the lunar highlands (Descartes)",
       "quiz": [
         {
@@ -390,25 +409,27 @@
             "Alan Shepard and Edgar Mitchell"
           ]
         }
-      ]
+      ],
+      "note": ""
     },
     {
       "name": "Apollo 17 Descent Stage",
       "type": "descent stage",
       "latitude": 20.1911,
       "longitude": 30.7723,
-      "uncertainty_m": 3.5,
-      "data_provider": "NASA NSSDCA (Goddard) - LRO/LROC camera positions",
+      "uncertainty_m": null,
+      "data_provider": "NASA NSSDCA (NASA Goddard Space Flight Center)",
       "year": 1972,
       "description": "Served as launch pad for the ascent stage and base for science packages (EASEP, then ALSEP) measuring moonquakes, heat flow and dust.",
       "fate": "Only the top half flew home; the heavy stage stayed to save fuel for carrying rock samples.",
       "sources": [
         "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
-        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html",
-        "https://www.lroc.asu.edu/data/support/downloads/2016_LROC_Coordinates_of_Human_Features.pdf"
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html"
       ],
       "nasa_verified": true,
       "short_description": "Base of the Apollo 17 lander, left by the last crewed mission.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "Last crewed Moon landing, with a geologist on the crew",
       "quiz": [
         {
@@ -429,23 +450,27 @@
             "Alan Bean"
           ]
         }
-      ]
+      ],
+      "note": ""
     },
     {
       "name": "Apollo 15 Lunar Rover",
       "type": "rover",
-      "latitude": 26.13174,
-      "longitude": 3.63803,
-      "uncertainty_m": 0.5,
-      "data_provider": "LROC (NASA Lunar Reconnaissance Orbiter Camera, ASU)",
+      "latitude": 26.13239,
+      "longitude": 3.6333,
+      "uncertainty_m": null,
+      "data_provider": "NASA NSSDCA (NASA Goddard Space Flight Center)",
       "year": 1971,
       "description": "The electric rover let astronauts roam kilometers from the lander with tools, cameras and rocks.",
       "fate": "Parked at its final stop; every kilogram of the return trip was saved for lunar samples.",
       "sources": [
-        "https://www.lroc.asu.edu/data/support/downloads/2016_LROC_Coordinates_of_Human_Features.pdf"
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html",
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo_lrv.html"
       ],
       "nasa_verified": true,
       "short_description": "Battery-powered Moon buggy that extended the astronauts' range.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "The first Lunar Roving Vehicle ever driven on the Moon",
       "quiz": [
         {
@@ -466,23 +491,27 @@
             "By pedals"
           ]
         }
-      ]
+      ],
+      "note": "NASA does not list separate rover coordinates. These are the coordinates NASA lists for the Apollo 15 Lunar Module landing site, where the rover was left."
     },
     {
       "name": "Apollo 16 Lunar Rover",
       "type": "rover",
-      "latitude": -8.9729,
-      "longitude": 15.5037,
-      "uncertainty_m": 3.7,
-      "data_provider": "LROC (NASA Lunar Reconnaissance Orbiter Camera, ASU)",
+      "latitude": -8.9734,
+      "longitude": 15.5011,
+      "uncertainty_m": null,
+      "data_provider": "NASA NSSDCA (NASA Goddard Space Flight Center)",
       "year": 1972,
       "description": "The electric rover let astronauts roam kilometers from the lander with tools, cameras and rocks.",
       "fate": "Parked at its final stop; every kilogram of the return trip was saved for lunar samples.",
       "sources": [
-        "https://www.lroc.asu.edu/data/support/downloads/2016_LROC_Coordinates_of_Human_Features.pdf"
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html",
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo_lrv.html"
       ],
       "nasa_verified": true,
       "short_description": "Battery-powered Moon buggy used in the Descartes Highlands.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "Electric rover driven in the Descartes Highlands",
       "quiz": [
         {
@@ -503,23 +532,27 @@
             "It was needed to broadcast TV forever"
           ]
         }
-      ]
+      ],
+      "note": "NASA does not list separate rover coordinates. These are the coordinates NASA lists for the Apollo 16 Lunar Module landing site, where the rover was left."
     },
     {
       "name": "Apollo 17 Lunar Rover",
       "type": "rover",
-      "latitude": 20.1896,
-      "longitude": 30.7769,
-      "uncertainty_m": 3.2,
-      "data_provider": "LROC (NASA Lunar Reconnaissance Orbiter Camera, ASU)",
+      "latitude": 20.1911,
+      "longitude": 30.7723,
+      "uncertainty_m": null,
+      "data_provider": "NASA NSSDCA (NASA Goddard Space Flight Center)",
       "year": 1972,
       "description": "The electric rover let astronauts roam kilometers from the lander with tools, cameras and rocks.",
       "fate": "Parked at its final stop; every kilogram of the return trip was saved for lunar samples.",
       "sources": [
-        "https://www.lroc.asu.edu/data/support/downloads/2016_LROC_Coordinates_of_Human_Features.pdf"
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html",
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo_lrv.html"
       ],
       "nasa_verified": true,
       "short_description": "Battery-powered Moon buggy of the last crewed mission.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "The last rover driven by astronauts on the Moon",
       "quiz": [
         {
@@ -540,7 +573,8 @@
             "Reach the far side"
           ]
         }
-      ]
+      ],
+      "note": "NASA does not list separate rover coordinates. These are the coordinates NASA lists for the Apollo 17 Lunar Module landing site, where the rover was left."
     },
     {
       "name": "Odysseus (IM-1)",
@@ -548,18 +582,18 @@
       "latitude": -80.13,
       "longitude": 1.44,
       "uncertainty_m": null,
-      "data_provider": "NASA NSSDCA (Goddard) - LRO/LROC camera positions",
-      "elevation_m": 2579,
+      "data_provider": "NASA NSSDCA (NASA Goddard Space Flight Center)",
       "year": 2024,
       "description": "First US soft landing since Apollo, by a commercial lander carrying NASA instruments.",
       "fate": "It tipped over on landing and its battery ended the mission within days.",
       "sources": [
         "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
-        "https://www.nasa.gov/missions/lro/nasas-lro-images-intuitive-machines-odysseus-lander/",
-        "https://www.lroc.asu.edu/images/1360"
+        "https://www.nasa.gov/missions/lro/nasas-lro-images-intuitive-machines-odysseus-lander/"
       ],
       "nasa_verified": true,
       "short_description": "Commercial lander that tipped over after the first US landing since Apollo.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "First US soft landing since Apollo (commercial lander)",
       "quiz": [
         {
@@ -580,7 +614,8 @@
             "The European Space Agency"
           ]
         }
-      ]
+      ],
+      "note": ""
     },
     {
       "name": "Athena (IM-2)",
@@ -588,16 +623,17 @@
       "latitude": -84.7906,
       "longitude": 29.1957,
       "uncertainty_m": null,
-      "data_provider": "NASA NSSDCA (Goddard) - LRO/LROC camera positions",
+      "data_provider": "NASA NSSDCA (NASA Goddard Space Flight Center)",
       "year": 2025,
-      "description": "Commercial lander near the lunar south pole carrying NASA\u2019s PRIME-1 ice drill experiment.",
+      "description": "Commercial lander near the lunar south pole carrying NASA’s PRIME-1 ice drill experiment.",
       "fate": "It landed on its side, so solar power and the mission were cut short.",
       "sources": [
-        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
-        "https://www.lroc.asu.edu/images/1408"
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html"
       ],
       "nasa_verified": true,
       "short_description": "Commercial lander that landed on its side near the south pole.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "Landed on its side near the south pole carrying an ice drill",
       "quiz": [
         {
@@ -618,7 +654,8 @@
             "At the Sea of Tranquility"
           ]
         }
-      ]
+      ],
+      "note": ""
     },
     {
       "name": "Blue Ghost Mission 1",
@@ -626,16 +663,17 @@
       "latitude": 18.562,
       "longitude": 61.81,
       "uncertainty_m": null,
-      "data_provider": "NASA NSSDCA (Goddard) - LRO/LROC camera positions",
+      "data_provider": "NASA NSSDCA (NASA Goddard Space Flight Center)",
       "year": 2025,
       "description": "Firefly lander operated a full lunar day with NASA payloads, including a heat probe and dust studies.",
       "fate": "The mission ended as lunar night fell and the lander lost power.",
       "sources": [
-        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
-        "https://www.lroc.asu.edu/images/1406"
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html"
       ],
       "nasa_verified": true,
       "short_description": "Commercial lander that worked a full lunar day.",
+      "image_url": "",
+      "image_credit": "",
       "key_fact": "Operated upright for a full lunar day",
       "quiz": [
         {
@@ -656,7 +694,8 @@
             "A bad software command"
           ]
         }
-      ]
+      ],
+      "note": ""
     }
   ]
 }
